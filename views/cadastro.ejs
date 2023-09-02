@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/style/style-login.css" />
+  </head>
+  <body>
+    
+    <h1 class="header">Cadastro</h1>
+    <div class="wrapper">
+      <form action="/cadastro/submit" method="post">
+        <input type="text" placeholder="Digite seu nome" name="nome" />
+        <input
+          type="email"
+          placeholder="Digite seu email"
+          name="email"
+          required
+        />
+        <input
+          type="password"
+          name="senha"
+          placeholder="Digite sua senha"
+          required
+        />
+        <button type="submit">Criar conta</button>
+        <a href="/login">Já tem uma conta? clique aqui!</a>
+      </form>
+    </div>
+  </body>
+</html>

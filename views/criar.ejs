@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar</title>
+    <link rel="stylesheet" href="/style/style-criar.css" />
+    <link rel="stylesheet" href="/style/style-components.css" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.4/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('./components/navBar') %>
+    <div class="wrapper">
+        <h1>Criar Viagem</h1>
+        <form action="/viagem/criarViagem" method="post" enctype="multipart/form-data">
+        <label>destino</label>
+        <input type="text" name="destino" required />
+        <label>descricao</label>
+        <input type="text" name="descricao" required />
+        <label>data ida</label>
+        <input type="date" name="dataSaida" required />
+        <label>data chegada</label>
+        <input type="date" name="dataChegada" required />
+        <label>valor</label>
+        <input type="number" min="1" step="any" name="valor" required />
+        <label>Imagem</label>
+        <input
+        type="file"
+        name="imagem"
+        accept="image/*"
+        aria-label="Upload"
+        required
+      />
+        <button type="submit">Salvar</button>
+      </form>
+    </div>
+  </body>
+</html>

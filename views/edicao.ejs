@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edição</title>
+    <link rel="stylesheet" href="/style/style-editar.css" />
+    <link rel="stylesheet" href="/style/style-components.css" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.0.4/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <%- include('./components/navBar') %>
+    <div class="wrapper">
+      <h1>Editar Viagem</h1>
+
+      <form method="POST" action="/viagem/<%= viagem.IdViagens %>/editar">
+        <div class="form-group">
+          <label for="destino">Destino</label>
+          <input
+            type="text"
+            id="destino"
+            name="destino"
+            value="<%= viagem.destino %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="dataSaida">Data de Saída</label>
+          <input
+            type="date"
+            id="dataSaida"
+            name="dataSaida"
+            value="<%= viagem.dataSaida %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="dataChegada">Data de Chegada</label>
+          <input
+            type="date"
+            id="dataChegada"
+            name="dataChegada"
+            value="<%= viagem.dataChegada instanceof Date ? viagem.dataChegada.toISOString().split('T')[0] : '' %>"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" name="descricao" required>
+<%= viagem.descricao %></textarea
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="valor">Valor</label>
+          <input
+            type="number"
+            id="valor"
+            name="valor"
+            value="<%= viagem.valor %>"
+            required
+          />
+        </div>
+
+        <button type="submit">Salvar</button>
+      </form>
+    </div>
+  </body>
+</html>

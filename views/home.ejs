@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="/style/style-home.css" />
+    <link rel="stylesheet" href="/style/style-components.css" />
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+    <%- include('./components/navBar') %>
+    <div class="wrapper">
+      <h1>Viagens Disponíveis</h1>
+
+     
+        
+        <div class="viagens-container">
+          <% for (let i = 0; i < viagens.length; i++) { %>
+            <div class="card">
+              <div class="card-top">
+                <img src="/imagesDestino/<%= viagens[i].imagem %>" alt="<%= viagens[i].destino %>" width="100px"/>
+                <h2><%= viagens[i].destino %></h2>
+              </div>
+              <div class="card-text">
+                
+                <p><span>Data de Saída:</span> <%= viagens[i].dataSaida %></p>
+                <p><span>Data de Chegada:</span> <%= viagens[i].dataChegada %></p>
+                <p><span>Descrição:</span> <%= viagens[i].descricao %></p>
+                <p class="valor">R$<%= viagens[i].valor.toFixed(2)%></p>
+              </div>
+              <a href="/viagem/<%= viagens[i].IdViagens %>/editar">
+                <button class="editar-btn">Editar</button>
+              </a>
+              <form method="POST" action="/viagem/excluirViagem/<%= viagens[i].IdViagens %>">
+                <button class="excluir-btn" type="submit">Excluir</button>
+              </form>
+            </div>
+          <% } %>
+        </div>
+  </body>
+</html>
