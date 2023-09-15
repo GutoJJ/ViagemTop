@@ -44,13 +44,15 @@ h1{
 .viagens-container{
   width: 100%;
   margin-top: 0.5vh;
-  display: grid;
-  row-gap: 2vh;
-  grid-template-columns: 1fr 1fr 1fr ;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .card{
-  width: 90%;
+  width: 500px;
   background: #3394cce7;
   border-radius: 1.5rem;
   display: flex;
@@ -60,6 +62,7 @@ h1{
   height: fit-content;
   color: #fff;
   margin-bottom: 2vh;
+  scale: 95%;
 }
 
 .card-top{
@@ -67,7 +70,7 @@ h1{
   height: 60%;
   background: #1f6c9a;
   border-radius: 1.5rem;
-  border-bottom: #fff 4px dashed;
+  border-bottom: #fff 4px solid;
 }
 
 .card-top img{
@@ -157,20 +160,13 @@ p{
   border-bottom: none;
 }
 
-@media (max-width:1000px) {
-  .viagens-container{
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
 @media (max-width: 767px) {
   h1{
     margin-left:auto;
     text-align: center;
   }
-  .viagens-container{
-    grid-template-columns: 1fr;
-  }
+
   h1{
     font-size: 38px;
   }

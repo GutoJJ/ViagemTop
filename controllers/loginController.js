@@ -30,8 +30,8 @@ const autentication = (req, res) => {
     }
 
     req.session.loggedin = true;
-    req.session.userId = results[0].idCliente; 
-    console.log("Autenticação bem-sucedida para: ", email);
+    req.session.userId = results[0].idCliente;
+    console.log("Autenticação bem-sucedida para: ", email, results[0].idCliente);
     res.redirect('/home');
   });
 };

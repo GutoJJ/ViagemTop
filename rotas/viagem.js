@@ -22,5 +22,5 @@ router.get('/home', controllerViagem.exibirViagens);
 router.post('/excluirViagem/:IdViagens', controllerViagem.excluirViagem);
 router.post('/criarViagem', upload.single('imagem'), controllerViagem.criarViagem);
 router.get('/:IdViagens/editar', controllerViagem.mostrarFormularioEdicao);
-router.post('/:IdViagens/editar', controllerViagem.editarViagem);
+router.post('/:IdViagens/editar',upload.single('imagem'),  controllerViagem.editarViagem);
 module.exports = router;

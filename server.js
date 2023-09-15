@@ -15,7 +15,7 @@ app.use(express.static('public'));
 app.use(express.static(path.join(__dirname,'style')));
 app.use(session({
     secret:'biscoituu',
-    resave:true,
+    resave:false,
     saveUninitialized:true
 }));
 

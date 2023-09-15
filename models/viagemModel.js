@@ -68,13 +68,13 @@ const criarViagem = (viagemData, callback) => {
   const editarViagem = (IdViagens, dadosEdicao, callback) => {
     const query = `
       UPDATE viagens
-      SET destino = ?, dataSaida = ?, dataChegada = ?, descricao = ?, valor = ?
+      SET destino = ?, imagem = ?, dataSaida = ?, dataChegada = ?, descricao = ?, valor = ?
       WHERE IdViagens = ?;
     `;
   
-    const { destino, dataSaida, dataChegada, descricao, valor } = dadosEdicao;
+    const { destino, imagem, dataSaida, dataChegada, descricao, valor } = dadosEdicao;
   
-    const values = [destino, dataSaida, dataChegada, descricao, valor, IdViagens];
+    const values = [destino, imagem, dataSaida, dataChegada, descricao, valor, IdViagens];
   
     conexao.query(query, values, (error, results) => {
       if (error) {

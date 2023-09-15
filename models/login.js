@@ -8,6 +8,7 @@ const verificacao = (email, senha, callback) => {
   console.log("Consultando com email e senha: ", email, meudeusNome);
   conexao.query(query, [email, meudeusNome], callback);
   console.log("usuario entro ", email, meudeusNome);
+  
 };
 
 module.exports = {

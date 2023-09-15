@@ -16,7 +16,7 @@
     <div class="wrapper">
       <h1>Editar Viagem</h1>
 
-      <form method="POST" action="/viagem/<%= viagem.IdViagens %>/editar">
+      <form method="POST" enctype="multipart/form-data" action="/viagem/<%= viagem.IdViagens %>/editar">
         <div class="form-group">
           <label for="destino">Destino</label>
           <input
@@ -33,7 +33,7 @@
             type="date"
             id="dataSaida"
             name="dataSaida"
-            value="<%= viagem.dataSaida %>"
+            value="<%= viagem.dataSaida ? viagem.dataSaida.toISOString().split('T')[0] : '' %>"
             required
           />
         </div>
@@ -58,14 +58,24 @@
         <div class="form-group">
           <label for="valor">Valor</label>
           <input
-            type="number"
+            type="text"
             id="valor"
             name="valor"
             value="<%= viagem.valor %>"
-            required
+            
           />
         </div>
-
+        <label>Imagem Atual:</label>
+        <img src="/imagesDestino/<%= viagem.imagem %>" alt="Imagem Atual" width="200" height="200" />
+        
+        <label>Carregar Nova Imagem:</label>
+        <input
+          type="file"
+          name="imagem"
+          accept="image/*"
+          aria-label="Upload"
+          value="<%= viagem.imagem %>"
+        />
         <button type="submit">Salvar</button>
       </form>
     </div>

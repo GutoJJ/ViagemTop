@@ -69,12 +69,13 @@ const criarViagem = (req, res) => {
         console.error('Erro ao obter a viagem para edição:', error);
         res.status(500).send('Erro ao obter a viagem para edição');
       } else {
-        // Verificando se as datas de saída e chegada não foram enviadas no formulário de edição
-        if (!dadosEdicao.dataSaida) {
-          dadosEdicao.dataSaida = viagemAtual.dataSaida;
-        }
-        if (!dadosEdicao.dataChegada) {
-          dadosEdicao.dataChegada = viagemAtual.dataChegada;
+
+        if (req.file) {
+       
+          dadosEdicao.imagem = req.file.filename;
+        } else {
+
+          dadosEdicao.imagem = viagemAtual.imagem;
         }
   
         viagemModel.editarViagem(IdViagens, dadosEdicao, (error) => {
@@ -88,6 +89,7 @@ const criarViagem = (req, res) => {
       }
     });
   };
+  
   module.exports = {
     criarViagem,exibirViagens,excluirViagem,editarViagem ,mostrarFormularioEdicao
   };
